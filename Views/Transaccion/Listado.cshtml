@@ -1,0 +1,31 @@
+@model IEnumerable<Nueva_carpeta.Models.Transaccion>
+
+<h1>Listado de Transacciones</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Remitente</th>
+            <th>Destinatario</th>
+            <th>País Origen</th>
+            <th>País Destino</th>
+            <th>Monto Enviado</th>
+            <th>Moneda</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Remitente</td>
+            <td>@item.Destinatario</td>
+            <td>@item.PaisOrigen</td>
+            <td>@item.PaisDestino</td>
+            <td>@item.MontoEnviado</td>
+            <td>@item.Moneda</td>
+            <td>@item.Estado</td>
+        </tr>
+    }
+    </tbody>
+</table>
