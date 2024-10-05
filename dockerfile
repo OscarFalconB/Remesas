@@ -19,9 +19,8 @@ WORKDIR /app
 # Copiamos los archivos generados en la etapa de construcción
 COPY --from=build-env /app/out .
 
-# Establecemos el nombre de la aplicación principal
-ENV APP_NET_CORE pc-02.dll 
+# Establecemos el nombre de la aplicación principal (usando el nombre correcto del .dll)
+ENV APP_NET_CORE Nueva_carpeta.dll 
 
 # Definimos el comando para ejecutar la aplicación
-# Cambiamos la URL para que use el host 0.0.0.0 con el puerto dinámico
 CMD ASPNETCORE_URLS=http://0.0.0.0:$PORT dotnet $APP_NET_CORE
