@@ -1,0 +1,31 @@
+@model IEnumerable<Parcial_progra.Models.Transaccion>
+
+<h2>Listado de operaciones</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Remitente</th>
+            <th>Destinatario</th>
+            <th>Pais Origen</th>
+            <th>Pais Destino</th>
+            <th>Monto Enviado</th>
+            <th>Moneda</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var transaccion in Model)
+    {
+        <tr>
+            <td>@transaccion.Remitente</td>
+            <td>@transaccion.Destinatario</td>
+            <td>@transaccion.PaisOrigen</td>
+            <td>@transaccion.PaisDestino</td>
+            <td>@transaccion.MontoEnviado</td>
+            <td>@transaccion.Moneda</td>
+            <td>@transaccion.Estado</td>
+        </tr>
+    }
+    </tbody>
+</table>

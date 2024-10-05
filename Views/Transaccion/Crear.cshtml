@@ -1,0 +1,60 @@
+@model Parcial_progra.Models.Transaccion
+
+<h2>Registrar nueva operación</h2>
+
+<form asp-action="Crear" method="post">
+    <div>
+        <label for="Remitente">Remitente</label>
+        <input asp-for="Remitente" class="form-control" />
+    </div>
+    <div>
+        <label for="Destinatario">Destinatario</label>
+        <input asp-for="Destinatario" class="form-control" />
+    </div>
+    <div>
+        <label for="PaisOrigen">Pais Origen</label>
+        <input asp-for="PaisOrigen" class="form-control" />
+    </div>
+    <div>
+        <label for="PaisDestino">Pais Destino</label>
+        <input asp-for="PaisDestino" class="form-control" />
+    </div>
+    <div>
+        <label for="MontoEnviado">Monto Enviado (USD)</label>
+        <input asp-for="MontoEnviado" class="form-control" id="MontoEnviado" />
+    </div>
+    <div>
+        <label for="Moneda">Moneda</label>
+        <input asp-for="Moneda" class="form-control" readonly value="USD" />
+    </div>
+    <div>
+        <label for="MontoFinal">Monto Final (BTC)</label>
+        <input asp-for="MontoFinal" class="form-control" readonly id="MontoFinal" />
+    </div>
+    <div>
+        <label for="Estado">Estado</label>
+        <input asp-for="Estado" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+</form>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#MontoEnviado').on('input', function () {
+                var montoEnviado = $(this).val();
+                if (montoEnviado > 0) {
+                    $.getJSON('/api/conversionapi/usd-to-btc', function (data) {
+                        var tasaCambio = data.tasaCambio;
+                        var montoFinal = montoEnviado / tasaCambio;
+                        $('#MontoFinal').val(montoFinal.toFixed(8));
+                    }).fail(function () {
+                        $('#MontoFinal').val('Error');
+                    });
+                } else {
+                    $('#MontoFinal').val('');
+                }
+            });
+        });
+    </script>
+}
