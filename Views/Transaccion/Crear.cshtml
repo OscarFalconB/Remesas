@@ -1,68 +1,60 @@
-@model RemesasApp.Models.Transaccion
+@model Parcial_progra.Models.Transaccion
 
-<h2>Registrar nueva transacción</h2>
+<h2>Registrar nueva operación</h2>
 
 <form asp-action="Crear" method="post">
-    <div class="form-group">
-        <label asp-for="Remitente"></label>
+    <div>
+        <label for="Remitente">Remitente</label>
         <input asp-for="Remitente" class="form-control" />
-        <span asp-validation-for="Remitente" class="text-danger"></span>
     </div>
-
-    <div class="form-group">
-        <label asp-for="Destinatario"></label>
+    <div>
+        <label for="Destinatario">Destinatario</label>
         <input asp-for="Destinatario" class="form-control" />
-        <span asp-validation-for="Destinatario" class="text-danger"></span>
     </div>
-
-    <div class="form-group">
-        <label asp-for="PaisOrigen"></label>
+    <div>
+        <label for="PaisOrigen">Pais Origen</label>
         <input asp-for="PaisOrigen" class="form-control" />
-        <span asp-validation-for="PaisOrigen" class="text-danger"></span>
     </div>
-
-    <div class="form-group">
-        <label asp-for="PaisDestino"></label>
+    <div>
+        <label for="PaisDestino">Pais Destino</label>
         <input asp-for="PaisDestino" class="form-control" />
-        <span asp-validation-for="PaisDestino" class="text-danger"></span>
     </div>
-
-    <div class="form-group">
-        <label asp-for="MontoEnviado"></label>
-        <input asp-for="MontoEnviado" class="form-control" />
-        <span asp-validation-for="MontoEnviado" class="text-danger"></span>
+    <div>
+        <label for="MontoEnviado">Monto Enviado (USD)</label>
+        <input asp-for="MontoEnviado" class="form-control" id="MontoEnviado" />
     </div>
-
-    <div class="form-group">
-        <label asp-for="Moneda"></label>
-        <select asp-for="Moneda" class="form-control">
-            <option value="USD">USD</option>
-            <option value="BTC">BTC</option>
-        </select>
-        <span asp-validation-for="Moneda" class="text-danger"></span>
+    <div>
+        <label for="Moneda">Moneda</label>
+        <input asp-for="Moneda" class="form-control" readonly value="USD" />
     </div>
-
-    <div class="form-group">
-        <label asp-for="TasaCambio"></label>
-        <input asp-for="TasaCambio" class="form-control" />
-        <span asp-validation-for="TasaCambio" class="text-danger"></span>
+    <div>
+        <label for="MontoFinal">Monto Final (BTC)</label>
+        <input asp-for="MontoFinal" class="form-control" readonly id="MontoFinal" />
     </div>
-
-    <div class="form-group">
-        <label asp-for="MontoFinal"></label>
-        <input asp-for="MontoFinal" class="form-control" />
-        <span asp-validation-for="MontoFinal" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Estado"></label>
+    <div>
+        <label for="Estado">Estado</label>
         <input asp-for="Estado" class="form-control" />
-        <span asp-validation-for="Estado" class="text-danger"></span>
     </div>
-
     <button type="submit" class="btn btn-primary">Registrar</button>
 </form>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            $('#MontoEnviado').on('input', function () {
+                var montoEnviado = $(this).val();
+                if (montoEnviado > 0) {
+                    $.getJSON('/api/conversionapi/usd-to-btc', function (data) {
+                        var tasaCambio = data.tasaCambio;
+                        var montoFinal = montoEnviado / tasaCambio;
+                        $('#MontoFinal').val(montoFinal.toFixed(8));
+                    }).fail(function () {
+                        $('#MontoFinal').val('Error');
+                    });
+                } else {
+                    $('#MontoFinal').val('');
+                }
+            });
+        });
+    </script>
 }

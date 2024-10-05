@@ -1,4 +1,4 @@
-namespace RemesasApp.Models;
+namespace Parcial_progra.Models;
 
 public class ErrorViewModel
 {

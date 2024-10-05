@@ -1,31 +1,33 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using RemesasApp.Models;
+using Parcial_progra.Models;
 
-namespace RemesasApp.Controllers;
-
-public class HomeController : Controller
+namespace Parcial_progra.Controllers
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    public class HomeController : Controller
     {
-        _logger = logger;
-    }
+        private readonly ILogger<HomeController> _logger;
 
-    public IActionResult Index()
-    {
-        return View();
-    }
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
+        // Modificación: Redirigir al método Crear del TransaccionController
+        public IActionResult Index()
+        {
+            return RedirectToAction("Crear", "Transaccion");
+        }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
     }
 }

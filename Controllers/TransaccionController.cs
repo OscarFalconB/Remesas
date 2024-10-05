@@ -1,54 +1,51 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RemesasApp.Data;
-using RemesasApp.Models;
-using System.Threading.Tasks;
+using Parcial_progra.Data;
+using Parcial_progra.Models;
+using Parcial_progra.Services;
 
-namespace RemesasApp.Controllers
+namespace Parcial_progra.Controllers
 {
     public class TransaccionController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ConversionService _conversionService;
 
-        public TransaccionController(ApplicationDbContext context)
+        public TransaccionController(ApplicationDbContext context, ConversionService conversionService)
         {
             _context = context;
+            _conversionService = conversionService;
         }
 
-        // Vista para crear una nueva transacción
         [HttpGet]
         public IActionResult Crear()
         {
             return View();
         }
 
-        // Procesar la creación de una nueva transacción
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Crear(Transaccion transaccion)
         {
             if (ModelState.IsValid)
             {
-                try
+                if (transaccion.Moneda == "USD")
                 {
-                    _context.Add(transaccion);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Listado));
+                    var tasaCambio = await _conversionService.ObtenerTasaCambioUsdBtc();
+                    transaccion.TasaCambio = tasaCambio;
+                    transaccion.MontoFinal = transaccion.MontoEnviado / tasaCambio;
                 }
-                catch (DbUpdateException ex)
-                {
-                    // Manejar el error y mostrar un mensaje si es necesario
-                    ModelState.AddModelError("", "Ocurrió un error al guardar la transacción.");
-                }
+
+                _context.Add(transaccion);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Listado));
             }
-            // Si llegamos aquí, es porque hubo un problema con la validación o la base de datos
             return View(transaccion);
         }
 
-        // Listado de transacciones
         public async Task<IActionResult> Listado()
         {
-            var transacciones = await _context.Transacciones.ToListAsync(); // Recupera todas las transacciones
+            var transacciones = await _context.Transacciones.ToListAsync();
             return View(transacciones);
         }
     }

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using RemesasApp.Models;
+using Parcial_progra.Models;
 
-namespace RemesasApp.Data
+namespace Parcial_progra.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -11,6 +11,6 @@ namespace RemesasApp.Data
         {
         }
 
-        public DbSet<Transaccion> Transacciones { get; set; }
+        public DbSet<Transaccion> Transacciones { get; set; }  // Esto es necesario para que EF Core cree la tabla
     }
 }

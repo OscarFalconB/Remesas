@@ -1,9 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace RemesasApp.Models
+namespace Parcial_progra.Models
 {
     public class Transaccion
     {
+        [Key] // Esto define la clave primaria
         public int Id { get; set; }
 
         [Required(ErrorMessage = "El remitente es requerido")]
@@ -20,21 +21,16 @@ namespace RemesasApp.Models
 
         [Required(ErrorMessage = "El monto enviado es requerido")]
         [Range(0.01, double.MaxValue, ErrorMessage = "El monto debe ser mayor que 0")]
-        public decimal MontoEnviado { get; set; }
+        public double MontoEnviado { get; set; }
 
         [Required(ErrorMessage = "La moneda es requerida")]
         public string Moneda { get; set; }
 
-        // Propiedad TasaCambio
-        [Required(ErrorMessage = "La tasa de cambio es requerida")]
-        [Range(0.000001, double.MaxValue, ErrorMessage = "La tasa de cambio debe ser mayor que 0")]
-        public decimal TasaCambio { get; set; }
+        public double TasaCambio { get; set; }
 
-        // Propiedad MontoFinal
-        [Required(ErrorMessage = "El monto final es requerido")]
-        [Range(0.01, double.MaxValue, ErrorMessage = "El monto final debe ser mayor que 0")]
-        public decimal MontoFinal { get; set; }
+        public double MontoFinal { get; set; }
 
+        [Required(ErrorMessage = "El estado es requerido")]
         public string Estado { get; set; }
     }
 }
