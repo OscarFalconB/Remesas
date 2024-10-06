@@ -1,4 +1,5 @@
 D:\Usuarios\Sebastean\Descargas\Nueva carpeta\out\Nueva carpeta.exe
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\out\out\out\web.config
 D:\Usuarios\Sebastean\Descargas\Nueva carpeta\out\out\web.config
 D:\Usuarios\Sebastean\Descargas\Nueva carpeta\out\appsettings.Development.json
 D:\Usuarios\Sebastean\Descargas\Nueva carpeta\out\appsettings.json
@@ -6,6 +7,12 @@ D:\Usuarios\Sebastean\Descargas\Nueva carpeta\out\out\appsettings.Development.js
 D:\Usuarios\Sebastean\Descargas\Nueva carpeta\out\out\appsettings.json
 D:\Usuarios\Sebastean\Descargas\Nueva carpeta\out\out\Nueva carpeta.deps.json
 D:\Usuarios\Sebastean\Descargas\Nueva carpeta\out\out\Nueva carpeta.runtimeconfig.json
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\out\out\Nueva_carpeta.deps.json
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\out\out\Nueva_carpeta.runtimeconfig.json
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\out\out\out\appsettings.Development.json
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\out\out\out\appsettings.json
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\out\out\out\Nueva carpeta.deps.json
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\out\out\out\Nueva carpeta.runtimeconfig.json
 D:\Usuarios\Sebastean\Descargas\Nueva carpeta\out\app.db
 D:\Usuarios\Sebastean\Descargas\Nueva carpeta\out\Nueva carpeta.dll
 D:\Usuarios\Sebastean\Descargas\Nueva carpeta\out\Nueva carpeta.deps.json

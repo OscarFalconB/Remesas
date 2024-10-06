@@ -145,3 +145,10 @@ D:\Usuarios\Sebastean\Descargas\Nueva carpeta\bin\Release\net8.0\out\appsettings
 D:\Usuarios\Sebastean\Descargas\Nueva carpeta\bin\Release\net8.0\out\appsettings.json
 D:\Usuarios\Sebastean\Descargas\Nueva carpeta\bin\Release\net8.0\out\Nueva carpeta.deps.json
 D:\Usuarios\Sebastean\Descargas\Nueva carpeta\bin\Release\net8.0\out\Nueva carpeta.runtimeconfig.json
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\bin\Release\net8.0\out\out\web.config
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\bin\Release\net8.0\out\Nueva_carpeta.deps.json
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\bin\Release\net8.0\out\Nueva_carpeta.runtimeconfig.json
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\bin\Release\net8.0\out\out\appsettings.Development.json
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\bin\Release\net8.0\out\out\appsettings.json
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\bin\Release\net8.0\out\out\Nueva carpeta.deps.json
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\bin\Release\net8.0\out\out\Nueva carpeta.runtimeconfig.json

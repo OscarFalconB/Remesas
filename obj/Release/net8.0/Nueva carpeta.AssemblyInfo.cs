@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Nueva carpeta")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+32b7b768caa85b3302b9bee9faaf33023307100e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b62fb67cb43bc805742189c269f013321050470b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Nueva carpeta")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Nueva carpeta")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
