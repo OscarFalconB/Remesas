@@ -140,3 +140,8 @@ D:\Usuarios\Sebastean\Descargas\Nueva carpeta\obj\Release\net8.0\refint\Nueva ca
 D:\Usuarios\Sebastean\Descargas\Nueva carpeta\obj\Release\net8.0\Nueva carpeta.pdb
 D:\Usuarios\Sebastean\Descargas\Nueva carpeta\obj\Release\net8.0\Nueva carpeta.genruntimeconfig.cache
 D:\Usuarios\Sebastean\Descargas\Nueva carpeta\obj\Release\net8.0\ref\Nueva carpeta.dll
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\bin\Release\net8.0\out\web.config
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\bin\Release\net8.0\out\appsettings.Development.json
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\bin\Release\net8.0\out\appsettings.json
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\bin\Release\net8.0\out\Nueva carpeta.deps.json
+D:\Usuarios\Sebastean\Descargas\Nueva carpeta\bin\Release\net8.0\out\Nueva carpeta.runtimeconfig.json
