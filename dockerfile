@@ -2,25 +2,23 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /app
 
-# Copiamos el archivo de proyecto y restauramos las dependencias
+# Copiar el archivo de proyecto y restaurar dependencias
 COPY *.csproj ./
 RUN dotnet restore
 
-# Copiamos el resto de los archivos de la aplicación
+# Copiar el resto de los archivos y publicar la aplicación como dependiente del framework
 COPY . ./
-
-# Publicamos la aplicación en modo Release
-RUN dotnet publish -c Release -o out
+RUN dotnet publish -c Release -o out --no-self-contained
 
 # Etapa de ejecución
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 
-# Copiamos los archivos generados en la etapa de construcción
+# Copiar los archivos publicados desde la etapa de construcción
 COPY --from=build-env /app/out .
 
-# Establecemos el nombre de la aplicación principal
-ENV APP_NET_CORE Nueva_carpeta.dll
+# Cambiar a un puerto dinámico
+ENV ASPNETCORE_URLS=http://+:5000
 
-# Definimos el comando para ejecutar la aplicación
-CMD ASPNETCORE_URLS=http://0.0.0.0:$PORT dotnet $APP_NET_CORE
+# Ejecutar la aplicación
+CMD ["dotnet", "Nueva_carpeta.dll"]
